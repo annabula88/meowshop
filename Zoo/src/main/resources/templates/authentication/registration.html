@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Аутентификация</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css">
+    <!-- <link rel="stylesheet" href="../../static/css/index.css" type="text/css">         -->
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+          <div class="in_header">
+             <div class="in_header_logo">
+                <img th:src="@{/img/logomini.png}" class="logo">
+                <!-- <img src="../../static/img/logomini.png" class="logo"> -->
+             </div>
+             <div class="in_header_title">
+                
+             </div>
+             <div class="in_header_btn">
+               <button type="button" th:onclick="|window.location.href='/'|" class="btn_signin">Назад</button>
+               <button type="button" th:onclick="|window.location.href='/authentication/registration'|" class="btn_signup">Авторизация</button>
+             </div>            
+          </div>
+               
+        </header>
+        <div class="registration">
+            <div class="login_section">
+                <h1>Регистрация</h1>
+                <form method="post" th:action="@{/authentication/registration}" th:object="${person}">
+                    <br/><br/><br/>
+                    <input type="text" th:field="*{login}" placeholder="Введите ваш логин" name="username" id="username">
+                    <div style="color: red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>                        
+                    <br/><br/>
+                    <input type="password" th:field="*{password}" placeholder="Введите ваш пароль" name="password" id="password">
+                    <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                    <br><br/><br/>
+                    <input type="submit" value="Создать учетную запись">
+                    <div th:if="${param.error}" style="color: red">
+                        Неправильный логин или пароль
+                    </div>
+                </form>
+                <a class="tag_a" href="/authentication/login"><p>Уже есть учетная запись? Авторизуйтесь</p></a>
+            </div>
+        </div> 
+        <footer class="footer">
+            <div class="in_footer">
+               
+            </div>
+        </footer>          
+    </div>  
+</body>
+</html>

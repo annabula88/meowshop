@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Привет! Ты на главной странице</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css">
+    <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+</head>
+<body>  
+    <div class="container">
+      <header class="header">
+        <div class="in_header">
+           <div class="in_header_logo">
+              <img th:src="@{/img/logomini.png}" class="logo">
+              <!-- <img src="../static/img/logomini.png" class="logo"> -->
+           </div>
+           <div class="in_header_title">
+              
+           </div>
+           <div class="in_header_btn">
+             <button type="button" th:onclick="|window.location.href='/authentication/login'|" class="btn_signin">Авторизация</button>
+             <button type="button" th:onclick="|window.location.href='/authentication/registration'|" class="btn_signup">Регистрация</button>
+           </div>            
+        </div>
+             
+      </header>
+      <div class="out_header">
+          <!--<img th:src="@{/img/photo.jpg}" class="logo_main">
+           <img src="../static/img/photo.jpg" class="logo_main"> -->
+      </div>   
+      <div class="body">
+        <div class="body_container_text">
+          <span></span>
+            <div class="body_text">
+                <p class="body_text">"Трудно понять, почему люди не осознают того, что домашние животные — это дар всему человечеству."
+                </p>
+                <p align="right">Линда Блэр</p>
+          <span></span>
+        </div>
+      </div>
+      <div class="sort_body">
+        <span></span>
+        <div>
+            <form th:method="POST" th:action="@{/product/search}" id="searchForm">
+                <fieldset>
+                    <span class="row_search">
+                        <span>
+                            <span>
+                                <input type="text" name="search" id="search" placeholder="Наименование">                            
+                            </span>
+                            <span>
+                                <input class="input" type="text" name="Ot" id="Ot" placeholder="от"> 
+                                <input type="text" name="Do" id="Do" placeholder="до">
+                            </span>
+                            <span>                           
+                                <select type="text" form="searchForm" name="category" th:value="${category}" class=""size-select
+                                id="category">
+                                   <option value="">Выберите категорию</option>                                        
+                                   <option name="option"  th:each="element : ${category}" th:value="${element}" th:text="${element}"
+                                   th:selected="${element == category}" ></option>                                    
+                               </select>                                 
+                            </span>
+                            <span>
+                                <input name="sub" type="submit" value="Найти">
+                            </span>                             
+                        </span>                                         
+                        <span class="radio">                           
+                           <input type="radio" id="ascending_price" name="price" value="asc">
+                           <label for="ascending_price">по возрастанию цены</label>
+                           <br>                           
+                           <input type="radio" id="descending_price" name="price" value="desc">
+                           <label for="descending_price">по убыванию цены</label>                                
+                        </span>                       
+                    </span>       
+                </fieldset>
+                <br>
+            </form>            
+        </div>
+        <span></span>        
+      </div>
+          <div class="body_container_text">
+              <span></span>
+              <div class="result">
+                  <p class="body_text">Результат поиска</p>
+              </div>
+              <span></span>
+          </div>
+      <div class="body_product">
+        <div class="product_section_search">  
+          <div class="product_card">
+              <div th:each="product : ${search_product}" class="product">
+                <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="200px">
+                <br>
+                <p th:text="${product.getTitle()}"></p>
+                <p th:text="${product.getCategory().getName()}"></p>
+                <p th:text="'Цена: ' + ${product.getPrice()}"></p> 
+                <div class="btn_product">
+                    <div class="btn_delete">
+                        <a class="tag_a_delete" th:href="@{/cart/add/{id}(id=${product.getId()})}">В корзину</a>
+                    </div>                
+                    <div class="btn_delete">
+                        <a class="tag_a_delete" th:href="@{/product/infouser/{id}(id=${product.getId()})}">Подробнее</a>
+                    </div>                    
+                 </div>        
+              </div>
+          </div>  
+        </div>  
+     </div>
+          <div class="body_container_text">
+              <span></span>
+              <div class="result">
+                  <p class="body_text">Доступные товары</p>
+              </div>
+              <span></span>
+          </div>
+      <div class="body_product">  
+        <div class="product_section_search">
+          <div class="product_card">
+            <div th:each="product : ${products}" class="product">
+               <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="200px">
+               <br>
+                <p th:text="${product.getTitle()}"></p>
+                <p th:text="${product.getCategory().getName()}"></p>
+                <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+                <div class="btn_product">
+                    <div class="btn_delete">
+                        <a class="tag_a_delete" th:href="@{/cart/add/{id}(id=${product.getId()})}">В корзину</a>
+                    </div>                
+                    <div class="btn_delete">
+                        <a class="tag_a_delete" th:href="@{/product/infouser/{id}(id=${product.getId()})}">О товаре</a>
+                    </div>                    
+                 </div>
+            </div>            
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="in_footer">
+         
+        </div>
+      </footer>          
+    </div>    
+  
+</body>
+</html>
+
+
+

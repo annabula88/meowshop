@@ -1,0 +1,627 @@
+.container{
+    display: grid;    
+    background-color: #EBEBF4;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+    
+}
+.header{       
+    left: 0;
+    right: 0;
+}
+.in_header{
+   height: 70px;
+    background-color: #373786;
+    display: grid;
+   grid-template-columns: 1fr 4fr 0.5fr;
+   left: 0;
+   right: 0;   
+}
+
+.main_img{
+    /*max-width: 100%;
+    min-height: 100%;*/
+    margin: 0 auto;
+    width: 400px;
+    align: center;
+    display: grid;
+    justify-items: center;
+}
+
+/*.main_img{
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 1000px;
+    display: grid;
+    justify-items: center;
+}*/
+
+.footer{
+    min-width: 100px; 
+    min-height: 70px;
+    border: none;   
+}
+.in_footer{
+    /* background-color:rgb(4, 43, 99); */
+    background-color:#373786;
+    /* border: 1px solid rgb(4, 43, 99); */
+    border: 1px solid #373786;
+    min-height: 100%; 
+    min-width: 100%;
+    justify-self: end;
+}
+.in_header_btn{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+.btn_signin{
+    width: 90px;
+    height: 30px;
+    font-size: 12px;
+    color: white;
+    background-color:#BF9E3A;
+    border-radius: 4px;
+    border: #BF9E3A 1px solid;
+    margin: 15px;
+    margin-top: 20px;
+    justify-self: center;
+}
+.btn_signin:hover{
+    background-color:#A67E06;
+}
+.btn_signup{
+    width: 90px;
+    height: 30px;
+    font-size: 12px;
+    color: white;
+    background-color:#BF9E3A;
+    border-radius: 4px;
+    border: #BF9E3A 1px solid;
+    margin: 15px;
+    margin-top: 20px;
+    justify-self: center;    
+}
+.btn_signup:hover{
+    background-color:#A67E06;
+}
+.logo{
+    width: 70px;
+    margin: 0px;
+}
+.logo_main{
+    height: 100px;
+    margin-top: 20px;
+}
+.out_header{
+    display: grid;
+    align-self: center;
+    justify-self: center;      
+}
+
+.body_container_text{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+}
+.body_text{
+    margin-top: 30px;
+    align: center;
+    padding-left: 20px;
+    padding-right: 100px;
+    font-style: italic;
+    font-color: #121257;
+    font-size: 18px;
+}
+.product_section{
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 1000px;
+    display: grid;
+    justify-items: center;
+  
+}
+.product_section_cart{
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 1000px;
+}
+.product_card{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.product{
+    border: 1px solid white;
+    border-radius: 5px;
+    display: grid;
+    border: 1px solid #C3C3DB;
+    padding: 20px;
+    margin: 30px;
+    transition: box-shadow 0.4s ease-out;
+    background-color: white;
+}
+.product:hover{
+    box-shadow: 0px 0px 10px 0px #9C9CB8;
+}
+
+.login_section{
+    width: 350px;
+    margin: 0 auto;
+    height: 450px;
+    border: 1px solid white;
+    border-radius: 10px;    
+    border: 1px solid #C3C3DB;
+    padding: 20px;
+    margin: 30px;
+    transition: box-shadow 0.4s ease-out;
+    justify-self: center;
+    align-self: 0;
+    background-color: white;
+    transition: box-shadow 0.4s ease-out;
+}
+.login_section:hover{
+    box-shadow: 0px 0px 10px 0px #9C9CB8;
+}
+.registration{
+    display: grid;
+    justify-items: center;    
+    height: 700px;
+    
+}
+
+::-webkit-input-placeholder { color:rgb(202, 177, 177); font-size: 14px;}
+::-moz-placeholder { color:rgb(94, 80, 80); font-size: 18px;}
+:-ms-input-placeholder { color:rgb(94, 80, 80); font-size: 18px;}
+:-moz-placeholder { color:rgb(94, 80, 80); font-size: 18px;}
+
+ 
+input[type=text]{
+    width:335px;
+    height: 37px;
+    border: 1px solid #383864;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+ }
+ input[type=password]{
+    width:335px;
+    height: 37px;
+    border: 1px solid #383864;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+ }
+ input[type=submit]{
+    width:350px;
+    height: 47px;
+    border: 1px solid #383864;
+    background-color: #383864;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+ }
+ input[type=submit]:hover{
+    background-color: #121257;
+ }
+ .tag_a{
+    text-decoration: none;
+    /*color: #9F9F9F;*/
+    display: grid;
+    justify-items: center;    
+ }
+ .tag_a_delete{
+    text-decoration: none;
+    color: #ffffff;
+    display: grid;
+    font-size: 14px;
+    justify-items: center; 
+    align-self: center;   
+ }
+ .btn_delete{
+    display: grid;
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    color: white;
+    background-color:#FFC412;
+    border-radius: 4px;
+    border: #FFC412 1px solid;
+    margin: 15px;
+    margin-top: 20px;
+    justify-items: center;
+ }
+ .btn_delete:hover{
+    background-color:#A67E06;
+ }
+ .btn_product{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ }
+ .function{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    background-color: #AAAAD9;
+    max-height: 120px;
+ }
+ .titr{
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    font-size: 25px;
+    padding-top: 5px;
+ }
+ .addproduct{
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr 0.5fr 1.5fr;
+    justify-items: center;
+    align-items: center;
+    
+ }
+ .addproduct_btn{
+    display: grid;
+    width: 120px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color:#383864;
+    border-radius: 4px;
+    border: #383864 1px solid;
+    justify-items: center;
+    margin-top: -25px;
+    
+ }
+ .addproduct_btn:hover{
+    background-color:#121257;
+ }
+ .addproduct_btn_a{
+    text-decoration: none;
+    color: #ffffff;
+    display: grid;
+    font-size: 14px;
+    justify-items: center; 
+    align-self: center; 
+ }
+ input[type=number]{
+    width:335px;
+    height: 37px;
+    border: 1px solid #383864;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+ }
+
+ select[type=number]{
+    width:314px;
+    height: 37px;
+    border: 1px solid #383864;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 3px;
+    margin-bottom: 5px;
+    margin-top: 0px;
+ } 
+ input[type=file]{
+    width:335px;
+    height: 37px;
+    border: 1px solid #383864;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+
+ }
+ .add_product_section{
+    
+    display: grid;
+    justify-items: center;
+    min-height: 900px;
+}
+ .add_product_card{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    max-width: 390px;
+    margin-right: 60px;
+   
+}
+.edit_product_section{
+    display: grid;
+    justify-items: center;
+    min-height: 800px;
+}
+.info_product_section{
+    display: grid;
+    justify-items: center;
+    height: fit-content;
+}
+.product_title{
+    display: grid;
+    justify-items: center;    
+}
+.in_header_user_btn{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    justify-items: right;
+    align-items: center;
+       
+}
+.in_header_user{
+    height: 70px;    
+    background-color: rgb(4, 43, 99) ;  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    left: 0;
+    right: 0;   
+ }
+ .btn_history{
+    width: 70px;
+    height: 30px;
+    font-size: 14px;
+    color: white;
+    background-color:#FFC412;
+    border-radius: 4px;
+    border: #FFC412 1px solid;
+    margin: 15px;
+    margin-top: 20px;
+    justify-self: right;
+    
+}
+.btn_history:hover{
+    background-color:#A67E06;
+}
+.body_user{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+}
+input[name="Do"]{
+    width: 100px;
+    height: 28px;
+}
+input[name="Ot"]{
+    width: 100px;
+    height: 28px;
+}
+input[name="search"]{
+    width: 200px;
+    height: 28px;
+}
+input[name="sub"]{
+    width: 120px;
+    height: 34px;
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 3px;
+    
+   
+      
+}
+select[name="category"]{
+    width: 250px;
+    height: 45px; 
+    border: 1px solid #383864;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 2px;
+    margin-bottom: 0px;
+    color: #383864;
+    
+
+}
+select[type="text"]{
+    width: 250px;
+    height: 36px; 
+    border: 1px solid #8383C3;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top:3px;
+    margin-bottom: 0px; 
+    color: #8383C3;
+    font-size: 14px;
+}
+fieldset{
+    border: 1px solid #f5f8ff;
+    border-radius: 6px;
+    background-color: #f5f8ff;
+    max-height: fit-content;
+}
+.sort_body{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+}
+.row_search{
+    display:  grid;
+    grid-template-rows: 1fr 0.5fr;
+}
+.radio{
+    margin: 5px;
+}
+.price_container{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+}
+.price_in_container{
+    display: grid;
+    grid-row: 30px;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+}
+.btn_checkout{
+    width:314px;
+    height: 37px;
+    border: 1px solid #373786;
+    background-color: #373786;
+    border-radius: 4px;
+    
+}
+.tag_a_checkout{
+    text-decoration: none;
+    color: #ffffff;
+    display: grid;
+    font-size: 10px;
+    justify-content: center; 
+    align-content: center;  
+    
+ }
+ .btn_checkout{
+    display: grid;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    color: white;
+    background-color:#373786;
+    border-radius: 4px;
+    border: #373786 1px solid;
+    margin: 15px;
+    margin-top: 20px;
+    justify-items: center;
+ }
+ .btn_checkout:hover{
+    background-color:#121257;
+ }
+ .function_orders{
+    display: grid;   
+    background-color: #d3d3d3;
+    max-height: 180px;
+ }
+ .titr_orders{
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    font-size: 25px;
+    padding-top: 5px;
+    max-height: 50px;
+ }
+ .orders_product{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center; 
+    min-height: 80px;   
+ }
+ input[name="sub_order"]{
+    width: 100px;
+    height: 34px;
+    font-size: 12px;    
+    padding: 3px;
+    margin-left: 5px;
+    margin-bottom: 17px;       
+}
+input[name="search_orders"]{
+    width: 200px;
+    height: 26px;
+    
+   
+}
+.text{
+    color: white;
+    font-size: 18px;
+}
+.edit_order_section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 50px;
+}
+.product_section_search{
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100px;
+}
+.result{
+    display: grid;
+    justify-self: center;
+    align-self: center;
+}
+.form_admin{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.input_last{
+    display: grid;
+    justify-self: end;    
+}
+.tag_a_change{
+    text-decoration: none;
+    color: #ffffff;
+    display: grid;
+    font-size: 14px;
+    justify-items: center; 
+    align-self: center; 
+    align-items: center; 
+}
+.btn_change{
+    display: grid;
+    width: 100px;
+    height: 36px;
+    font-size: 14px;
+    color: white;
+    background-color:#BF9E3A;
+    border-radius: 4px;
+    border: #BF9E3A 1px solid;
+    margin: 15px;
+    margin-top: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+ .btn_change:hover{
+    background-color:#A67E06;
+ }
+ select[type="textst"]{
+    width: 350px;
+    height: 35px; 
+    border: 1px solid #6D6DC3;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px; 
+    color: #6D6DC3;
+    font-size: 14px;
+}
+.label_status{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding-top: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #383864;
+}
+.select_status{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+   
+}
+form[name="status"]{
+    background-color: #eceff3;
+    border: 1px solid #e0e6f1;
+    border-radius: 4px;
+}
+input[name="change_order"]{
+    width:250px !important;
+    height: 47px;
+    border: 1px solid #383864;
+    background-color: #383864;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+input[name="change_order"]:hover{
+    background-color: #121257;
+}
+

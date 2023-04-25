@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Привет! Ты на главной странице</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/index.css" type="text/css">
+</head>
+<body>  
+    <div class="container">
+      <header class="header">
+        <div class="in_header_user">
+           <div class="in_header_logo">
+              <img th:src="@{/img/logomini.png}" class="logo">
+              <!-- <img src="../../static/img/logomini.png" class="logo"> -->
+           </div>
+           <div class="in_header_title">
+              
+           </div>
+           <div class="in_header_user__btn"> 
+                <button type="button" th:onclick="|window.location.href='/orders'|" class="btn_history">История</button>
+                <button type="button" th:onclick="|window.location.href='/cart'|" class="btn_history">Корзина</button>
+                <button type="button" th:onclick="|window.location.href='/authentication/logout'|" class="btn_history">Выйти</button>
+           </div>            
+        </div>
+             
+      </header>
+      <div class="out_header">
+<!--          <img th:src="@{/img/photo.jpg}" class="logo_main">        -->
+          <!-- <img src="../../static/img/photo.jpg" class="logo_main"> -->
+      </div>   
+      <div class="body">
+        <div class="body_container_text">
+          <span></span>
+            <div class="body_text">
+                <p class="body_text">"Когда в семье появляется питомец, вы думаете, что в истории вашей жизни он будет персонажем второго плана.
+                    В нашем случае мне уже стало казаться, что в истории его жизни персонажем второго плана буду я."
+                </p>
+                <p align="right">Гвен Купер</p>
+          <span></span>
+        </div>
+      </div>
+      <div class="price_container">
+        <span></span>
+        <div class="price_in_container">
+            <div class="btn_checkout">
+               <a class="tag_a_checkout" th:href="@{/index}">Назад</a>
+            </div>
+            <h3>Заказы</h3>          
+        </div>
+        <span></span>
+      </div>
+      <div class="body_user">        
+        <span></span>
+        <div class="product_section">
+            <div class="product_card">
+                <div th:each="order : ${orders}" class="product">
+                    <h3 th:text="'Заказ № ' + ${order.getNumber()}"></h3>
+                    <img th:src="'/img/' + ${order.getProduct().imageList[0].getFileName()}" width="200px">
+                    <p th:text="'Наименование: ' + ${order.getProduct().getTitle()}"></p>
+                    <p th:text="'Количество: ' + ${order.getCount()}"></p>
+                    <p th:text="'Цена: ' + ${order.getPrice()}"></p>
+                    <p th:text="'Дата заказа: ' + ${#temporals.format(order.getDateTime(), 'dd-MMM-yyyy')}"></p>
+                    <p th:text="'Статус: ' + ${order.getStatus()}">
+                </div> 
+            </div>       
+        </div>    
+        </div>               
+        <span></span>  
+      </div>
+      <footer class="footer">
+        <div class="in_footer">
+       
+        </div>
+      </footer>          
+    </div>    
+
+</body>
+</html>
+
+

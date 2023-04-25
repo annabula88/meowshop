@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/index.css" type="text/css">
+</head>
+<body>  
+    <div class="container">
+      <header class="header">
+        <div class="in_header">
+           <div class="in_header_logo">
+              <img th:src="@{/img/logomini.png}" class="logo">
+              <!-- <img src="../static/img/logomini.png" class="logo"> -->
+           </div>
+           <div class="in_header_title">              
+           </div>
+           <div class="in_header_btn">
+            <div>
+                <button type="button" th:onclick="|window.location.href='/index'|" class="btn_signin">Назад</button>
+            </div>
+            <div>
+                <button type="button" th:onclick="|window.location.href='/authentication/logout'|" class="btn_signin">Выйти</button>
+            </div>            
+           </div>
+           
+        </div>
+
+      </header>
+      <div class="function_orders">
+        <h3 class="titr_orders">Панель администратора</h3>
+        <div class="orders_product">
+           <span></span>
+           <form th:method="POST" th:action="@{/admin/search}" class="form_admin">
+                <span class="input_last">
+                    <input type="text" name="search_orders" id="search_orders" placeholder="XXXX">
+                    <div th:if="${error}" style="color: rgb(75, 67, 67); font-size: 10px; padding-left: 5px;" >
+                        введите 4 последние символа заказа
+                    </div> 
+                </span>
+                <span>
+                    <input name="sub_order" type="submit" value="Найти">
+                </span>
+           </form>            
+           <span></span>
+        </div>        
+      </div>
+     
+      <div class="body_user">        
+        <span></span>
+        <div class="product_section">
+            <div class="product_card">
+                <div th:each="order : ${orders}" class="product">
+                    <h3 th:text="'Заказ № ' + ${order.getNumber()}"></h3>
+                    <p th:text="'Заказчик: ' + ${order.getPerson().getLogin()}"></p>
+                    <img th:src="'/img/' + ${order.getProduct().imageList[0].getFileName()}" width="240px">
+                    <p th:text="'Наименование: ' + ${order.getProduct().getTitle()}"></p>
+                    <p th:text="'Количество: ' + ${order.getCount()}"></p>
+                    <p th:text="'Цена: ' + ${order.getPrice()}"></p>
+                    <p th:text="'Дата заказа: ' + ${#temporals.format(order.getDateTime(), 'dd-MMM-yyyy')}"></p>
+                    <p th:text="'Статус: ' + ${order.getStatus()}">
+                        <div class="btn_change">
+                            <a class="tag_a_change" th:href="@{/admin/changestatus/{id}(id=${order.getId()})}">Изменить</a>
+                        </div>                          
+                </div> 
+            </div>       
+        </div>   
+        <span></span>  
+      </div>
+      <footer class="footer">
+          <div class="in_footer">
+             
+          </div>
+        </footer>          
+    </div>  
+</body>
+</html>

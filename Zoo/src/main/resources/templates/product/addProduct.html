@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/index.css" type="text/css">
+</head>
+<body>  
+    <div class="container">
+      <header class="header">
+        <div class="in_header">
+           <div class="in_header_logo">
+              <img th:src="@{/img/logomini.png}" class="logo">
+              <!-- <img src="../static/img/logomini.png" class="logo"> -->
+           </div>
+           <div class="in_header_title">              
+           </div>
+           <div class="in_header_btn">
+                <div>
+                    <button type="button" th:onclick="|window.location.href='/index'|" class="btn_signin">Назад</button>
+                </div>
+                <div>
+                    <button type="button" th:onclick="|window.location.href='/authentication/logout'|" class="btn_signin">Выйти</button>
+                </div>                               
+           </div>            
+        </div>
+
+      </header>
+      <div class="function">
+        <h3 class="titr">Панель администратора</h3>
+        <div>
+        </div>        
+      </div>
+      <div class="body_product">  
+        <div class="add_product_section">
+          <div class="add_product_card">
+            <div class="product">
+                <div>
+                   <h3>Добавление товара</h3>
+                </div>                
+                <form th:method="POST" th:action="@{/admin/product/add}" th:object="${product}" enctype="multipart/form-data">
+                    <br>
+                    <input type="text" th:field="*{title}" placeholder="Наименование" id="title">
+                    <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                    <br>                    
+                    
+                    <textarea th:field="*{description}" placeholder="Описание" id="description"></textarea>
+                        <div style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+                    <br>
+                    
+                    <textarea th:field="*{seller}" placeholder="Бренд" id="seller"></textarea>
+                        <div style="color: red" th:if="${#fields.hasErrors('seller')}" th:errors="*{seller}"></div>
+                    <br>
+                    <input type="text" th:field="*{warehouse}" placeholder="Склад" id="warehouse">
+                    <div style="color: red" th:if="${#fields.hasErrors('warehouse')}" th:errors="*{warehouse}"></div>
+                    <br>                    
+                    
+                    <input type="number" th:field="*{price}" min="1" step="0.00" id="price" placeholder="Цена">
+                        <div style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+                    <br>
+                   
+                    <!-- <label for="warehouse">Введите склад: </label> -->
+                    <!-- <input type="text" th:field="*{warehouse}" placeholder="Склад" id="warehouse"> -->
+                        <!-- <div style="color: red" th:if="${#fields.hasErrors('warehouse')}" th:errors="*{warehouse}"></div> -->
+                    <!-- <br> -->
+                    <!-- <br> -->                   
+
+
+                    <label for="category">Введите категорию товара: </label><br><br>
+                    <select type="text" name="category" th:field="*{category}" id="category">
+                        <div th:each="element : ${category}">
+                            <option th:text="${element.getName()}" th:value="${element.getId()}"></option>
+                        </div>
+                    </select>
+                    <br><br>
+                    <!--<p style="color: #FF7400">Вы можете добавить до 5 фотографий. Первая фотография не может быть пустой т.к она будет являться главной</p>-->
+                    <input type="file" name="file_one"><br><br>
+                    <!--<input type="file" name="file_two">
+                    <input type="file" name="file_three">
+                    <input type="file" name="file_four">
+                    <input type="file" name="file_five">-->
+                    <input type="submit" value="Добавить">
+                </form>                
+            </div>
+        </div>
+    </div>
+  </div>  
+
+<footer class="footer">
+    <div class="in_footer">
+        
+    </div>
+  </footer>          
+</div>  
+</body>
+</html>

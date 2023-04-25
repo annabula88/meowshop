@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о товаре</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css">
+    <!-- <link rel="stylesheet" href="../../static/css/index.css" type="text/css"> -->
+</head>
+<body>  
+    <div class="container">
+      <header class="header">
+        <div class="in_header">
+           <div class="in_header_logo">
+              <img th:src="@{/img/logomini.png}" class="logo">
+              <!-- <img src="../../static/img/logomini.png" class="logo"> -->
+           </div>
+           <div class="in_header_title">
+              
+           </div>
+           <div class="in_header_btn">
+             <button type="button" th:onclick="|window.location.href='/authentication/login'|" class="btn_signin">Вход</button>
+             <button type="button" th:onclick="|window.location.href='/authentication/registration'|" class="btn_signup">Регистрация</button>
+           </div>            
+        </div>
+             
+      </header>
+      <div class="out_header">
+          <img th:src="@{/img/photo.jpg}" class="logo_main">        
+          <!-- <img src="../../static/img/photo.jpg" class="logo_main"> -->
+      </div>   
+      <div class="body">
+        <div class="body_container_text">
+          <span></span>
+            <div class="body_text">
+                <p class="body_text">"Когда между собакой и кошкой возникает дружба, то это не иначе как союз против повара."
+                </p>
+                <p align="right">Стефан Цвейг</p>
+          <span></span>
+        </div>
+      </div>
+      <div class="body_product">  
+        <div class="info_product_section">
+          <div class="add_product_card">
+            <div class="product">
+                <div class="product_title">
+                   <h3>Товар</h3>
+                </div>                
+                <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+                <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+                <p th:text="'Бренд: ' + ${product.getSeller()}"></p>
+                <p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
+                <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
+                <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+                <div th:each="img : ${product.getImageList()}">
+                    <img th:src="'/img/' + ${img.getFileName()}" width="300px" alt="">
+                </div>
+                <div class="in_header_btn">
+                    <button type="button" th:onclick="|window.location.href='/authentication/registration'|" class="btn_signin">В корзину</button>
+                    <button type="button" th:onclick="|window.location.href='/'|" class="btn_signup">Назад</button>
+                </div> 
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="in_footer">
+           
+        </div>
+      </footer>          
+    </div>    
+  
+</body>
+</html>
+
+
+
+
+
+
+

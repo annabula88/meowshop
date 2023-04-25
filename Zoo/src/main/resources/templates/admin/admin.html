@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css">
+    <link rel="stylesheet" href="../../static/css/index.css" type="text/css">
+</head>
+<body>  
+    <div class="container">
+      <header class="header">
+        <div class="in_header">
+           <div class="in_header_logo">
+              <img th:src="@{/img/logomini.png}" class="logo">
+              <!-- <img src="../static/img/logomini.png" class="logo"> -->
+           </div>
+           <div class="in_header_title">              
+           </div>
+           <div class="in_header_btn">
+             <button type="button" th:onclick="|window.location.href='/authentication/logout'|" class="btn_signin">Выйти</button>
+           </div>            
+        </div>
+
+      </header>
+      <div class="function">
+        <h3 class="titr">Панель администратора</h3>
+        <div class="addproduct">
+           <span></span>
+           <div class="addproduct_btn">
+              <a class="addproduct_btn_a" th:href="@{admin/product/add}">Добавить товар</a>
+           </div> 
+           <div class="addproduct_btn">
+            <a class="addproduct_btn_a" th:href="@{admin/orders/admin}">Все заказы</a>
+         </div>           
+           <span></span>
+        </div>        
+      </div>
+     
+      <div class="body_product">  
+        <div class="product_section">
+          <div class="product_card">
+            <div th:each="product : ${products}" class="product">
+               <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="100px">
+               <br>
+                <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+                <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+                <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+                <p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
+                <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
+                <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
+                <div class="btn_product">
+                    <div class="btn_delete">
+                      <a  class="tag_a_delete" th:href="@{/admin/product/edit/{id}(id=${product.getId()})}">Редактировать</a>
+                    </div>                
+                    <div class="btn_delete">
+                       <a class="tag_a_delete" th:href="@{/admin/product/delete/{id}(id=${product.getId()})}">Удалить</a>
+                    </div>                    
+                </div>
+            </div>            
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+          <div class="in_footer">
+           
+          </div>
+        </footer>          
+    </div>  
+</body>
+</html>
